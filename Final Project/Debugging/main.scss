@@ -1,0 +1,52 @@
+@import "./variables"; /* There is no this file */
+@import "./resets"; /* There is no this file */
+@mixin flexContainer {
+  justify-content: center;
+  font-style: italic;
+  align-items: center;
+}
+
+@mixin mobile {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($background-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+@function weights($weight-name) {
+  @return map-get($font-weight, $weight-name);
+}
+
+@function flexdirection($direction) {
+  @return $direction;
+}
+
+body {
+  background: $background-color;
+  color: $text-color;
+  font-weight: weights(italic); /* weights(italic); -> weights('italic'); */
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: flexdirection(column); /* flexdirection(column); -> flexdirection('column'); */
+  .main_paragraph {
+    @exclude flexContainer; /* @exclude -> @include */
+  }
+}
+.light {
+  @include theme($light-theme: false);
+  @mobile {
+    /* @mobile -> @include mobile */
+    flex-direction: flexdirection(column); /* flexdirection(column); -> flexdirection('column'); */
+    background-color: green;
+  }
+}

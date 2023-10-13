@@ -1,0 +1,39 @@
+@import "./variables";
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+header {
+  background: $primary-color;
+  padding: 5px;
+}
+.banner {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img {
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.nav-link {
+  color: white !important;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border: none !important;
+  border-width: 0 !important;
+}
+.navbar-custom {
+  background: $primary-color;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.btn-custom {
+  background-color: $primary-color;
+  color: white !important;
+}
+.toph {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: $primary-color;
+  color: $accent-color;
+}
